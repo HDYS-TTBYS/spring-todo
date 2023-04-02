@@ -6,7 +6,8 @@ services:
     container_name: mysql
     env_file:
       - ./mysql/db.env # DB接続用MySQL関連
-    # volumes:
+    volumes:
+      - ./mysql/sql_init:/docker-entrypoint-initdb.d
     # - ./mysql/data:/var/lib/mysql # 実データの永続化
     # - ./mysql/log:/var/log/mysql # logの永続化
     ports:
