@@ -37,7 +37,7 @@ services:
     tty: true
     working_dir: /app
     volumes:
-      - ../demo/demo:/app # Spring Bootのプロジェクト
+      - ../demo:/app # Spring Bootのプロジェクト
     ports:
       - 8080:8080 # 通常実行
       - 5050:5050 # デバッグ用
