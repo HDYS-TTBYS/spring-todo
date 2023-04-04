@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.repository.TodoRepository;
 import com.example.demo.entity.TodoEntity;
+import com.example.demo.entity.TodosEntity;
 
 import jakarta.transaction.Transactional;
 
@@ -16,7 +17,10 @@ public class TodoService {
   @Autowired
   TodoRepository todoRepository;
 
-  public List<TodoEntity> getTodos() {
-    return todoRepository.findAll();
+  public TodosEntity getTodos() {
+    long count = todoRepository.count();
+    List<TodoEntity> list = todoRepository.findAll();
+    TodosEntity todos = new TodosEntity(count, list);
+    return todos;
   }
 }
